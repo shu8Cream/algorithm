@@ -7,8 +7,8 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 
 ### 約数
 - [約数列挙](https://github.com/shu8Cream/algorithm/blob/main/divisor.cpp)
-- 最大公約数
-- 最小公倍数
+- [最大公約数](https://github.com/shu8Cream/algorithm/blob/main/gcd.cpp)
+- [最小公倍数](https://github.com/shu8Cream/algorithm/blob/main/lcm.cpp)
 
 ### 素数
 - エラトステネスの篩
