@@ -1,3 +1,11 @@
+//
+//  DFS（深さ優先探索）基本ver.
+//
+/*
+
+    タイムスタンプ　行きがけ順＋帰りがけ順
+
+*/
 #include <bits/stdc++.h>
 using namespace std;
 #define rep(i,n) for (int i=0; i<(n); i++)
