@@ -13,6 +13,10 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 ### 素数
 - エラトステネスの篩
 
+### 探索法
+- [二分探索](https://github.com/shu8Cream/algorithm/blob/main/binary_search.cpp)
+- 三分探索
+
 ### DFS・BFS
 - [DFS(time stamp)](https://github.com/shu8Cream/algorithm/blob/main/dfs.cpp)
 - [BFS(temple)](https://github.com/shu8Cream/algorithm/blob/main/bfs.cpp)
