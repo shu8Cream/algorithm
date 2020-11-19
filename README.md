@@ -12,3 +12,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 
 ### 素数
 - エラトステネスの篩
+
+### DFS・BFS
+- [DFS(time stamp)](https://github.com/shu8Cream/algorithm/blob/main/dfs.cpp)
+- BFS
