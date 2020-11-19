@@ -15,4 +15,4 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 
 ### DFS・BFS
 - [DFS(time stamp)](https://github.com/shu8Cream/algorithm/blob/main/dfs.cpp)
-- BFS
+- [BFS(temple)](https://github.com/shu8Cream/algorithm/blob/main/bfs.cpp)
