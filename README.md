@@ -5,6 +5,9 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 
 ## 整数
 
+## mod
+- [mod_power](https://github.com/shu8Cream/algorithm/blob/main/mod_power.cpp)
+
 ### 約数
 - [約数列挙](https://github.com/shu8Cream/algorithm/blob/main/divisor.cpp)
 - [最大公約数](https://github.com/shu8Cream/algorithm/blob/main/gcd.cpp)
@@ -20,3 +23,6 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 ### DFS・BFS
 - [DFS(time stamp)](https://github.com/shu8Cream/algorithm/blob/main/dfs.cpp)
 - [BFS(temple)](https://github.com/shu8Cream/algorithm/blob/main/bfs.cpp)
+
+### Union-Find
+- Union-Find(マージテク)
