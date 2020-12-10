@@ -20,9 +20,15 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [二分探索](https://github.com/shu8Cream/algorithm/blob/main/binary_search.cpp)
 - 三分探索
 
+## Tree
+木に関するアルゴリズム
+
 ### DFS・BFS
 - [DFS(time stamp)](https://github.com/shu8Cream/algorithm/blob/main/dfs.cpp)
 - [BFS(temple)](https://github.com/shu8Cream/algorithm/blob/main/bfs.cpp)
+
+### LCA
+- [LCA(by doubling)](https://github.com/shu8Cream/algorithm/blob/main/lca.cpp)
 
 ### Union-Find
 - Union-Find(マージテク)
