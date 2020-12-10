@@ -13,7 +13,7 @@ using ll = long long;
 
 ll mod_pow(ll a, ll b, ll n){
     if(b==0) return 1;
-    if(b%2==0) return a * mod_pow(a, b-1, n) % n;
+    if(b%2!=0) return a * mod_pow(a, b-1, n) % n;
     else return mod_pow(a * a % n, b / 2, n) % n;
 }
 
