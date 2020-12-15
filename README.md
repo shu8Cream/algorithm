@@ -44,3 +44,6 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 
 ### Union-Find
 - Union-Find(マージテク)
+
+## String
+- [Z-algorithm](https://github.com/shu8Cream/algorithm/blob/main/z-algorithm.cpp)
