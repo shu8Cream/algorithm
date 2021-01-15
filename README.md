@@ -48,3 +48,6 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 
 ## String
 - [Z-algorithm](https://github.com/shu8Cream/algorithm/blob/main/z-algorithm.cpp)
+
+## Others
+- 座標圧縮（１次元）(https://github.com/shu8Cream/algorithm/blob/main/compress1.cpp)
