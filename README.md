@@ -44,7 +44,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 様々なデータ構造に関する実装
 
 ### Union-Find
-- Union-Find(マージテク)
+- [Union-Find(マージテク)](https://github.com/shu8Cream/algorithm/blob/main/unionfind.cpp)
 
 ## String
 - [Z-algorithm](https://github.com/shu8Cream/algorithm/blob/main/z-algorithm.cpp)
