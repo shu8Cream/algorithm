@@ -16,7 +16,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [拡張ユークリッドの互除法](https://github.com/shu8Cream/algorithm/blob/main/ext_gcd.cpp)
 
 ### 素数
-- エラトステネスの篩
+- [エラトステネスの篩-素因数分解](https://github.com/shu8Cream/algorithm/blob/main/eratosthenes.cpp)
 
 ## 探索法
 様々な探索手法に関する実装
@@ -50,4 +50,5 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [Z-algorithm](https://github.com/shu8Cream/algorithm/blob/main/z-algorithm.cpp)
 
 ## Others
-- 座標圧縮（１次元）(https://github.com/shu8Cream/algorithm/blob/main/compress1.cpp)
+- [座標圧縮（１次元）](https://github.com/shu8Cream/algorithm/blob/main/compress1.cpp)
+- [行列基本演算](https://github.com/shu8Cream/algorithm/blob/main/matrix.cpp)
