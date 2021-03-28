@@ -21,30 +21,24 @@ using vi = vector<int>;
 using vvi = vector<vi>;
 
 // 0-indexed
+template<typename T>
 struct BIT{
 public:
-    int n;
-    vector<ll> a;
+    int n; vector<T> a;
     BIT(int n_):n(n_),a(n+1,0){}
 
-    void add(int idx, ll x){
+    void add(int idx, T x){
         idx++;
-        if(idx<=0 || n<idx){
-            cerr << "Index error" << endl;
-            return;
-        }
+        if(idx<=0 || n<idx){ cerr << "Index error" << endl; return; }
         for(int i=idx; i<=n; i+=i&(-i)){
             a[i]+=x;
         }
     }
 
-    ll RangeSum(int idx){
-        ll res = 0;
+    T RangeSum(int idx){
+        T res = 0;
         idx++;
-        if(idx<0 || n<idx){
-            cerr << "Index error" << endl;
-            return 0;
-        }
+        if(idx<0 || n<idx){ cerr << "Index error" << endl; return 0; }
         if(idx==0) return 0;
         for(int i=idx; i>0; i-=(i&-i)){
             res+=a[i];
@@ -52,8 +46,8 @@ public:
         return res;
     }
 
-    ll RangeSum(int le, int ri){
-        return RangeSum(ri)-RangeSum(le-1);
+    T RangeSum(int l, int r){
+        return RangeSum(r)-RangeSum(l-1);
     }
 };
 
@@ -65,7 +59,7 @@ int main() {
     vi a(n);
     rep(i,n) {cin >> a[i]; a[i]--;}
 
-    BIT bit(n);
+    BIT<int> bit(n);
     ll ans = 0;
     rep(i,n){
         ans+=bit.RangeSum(n-1)-bit.RangeSum(a[i]);
