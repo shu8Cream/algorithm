@@ -4,6 +4,7 @@
 /*
 
     マージテク（データ構造をマージする一般的なテク） O(NlogN^2)
+    連結成分の個数はsetで全頂点の親を探索して、setのサイズ
 
 */
 #include <bits/stdc++.h>
@@ -23,7 +24,7 @@ struct UnionFind{
         if(par[x] < 0) return x;
         return par[x] = find(par[x]);
     }
-    bool unite(int x, int y){
+    bool merge(int x, int y){
         x = find(x); y = find(y);
         if(x == y) return false;
         if(par[x] > par[y]) swap(x,y); //マージテク
