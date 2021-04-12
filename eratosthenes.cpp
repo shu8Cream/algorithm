@@ -61,11 +61,15 @@ int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
 
-    Sieve sieve(1e6);
+    Sieve sieve(15001000);
     int n;
     cin >> n;
     auto f = sieve.factor(n);
+    auto fl = sieve.factorList(n);
     for(auto p : f){
         cout << p.first << " " << p.second << endl;
     }
+    // for(auto p : fl){
+    //     cout << p << endl;
+    // }
 }
