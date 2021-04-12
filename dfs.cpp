@@ -4,6 +4,7 @@
 /*
 
     タイムスタンプ　行きがけ順＋帰りがけ順
+    dfsでグラフを渡す時には、参照渡し（値を渡すとデカすぎてTLEする）
 
 */
 #include <bits/stdc++.h>
@@ -13,21 +14,18 @@ using ll = long long;
 using P = pair<int, int>;
 using vi = vector<int>;
 using vvi = vector<vi>;
-using Graph = vvi;
 
-Graph to;
+vvi to;
 vi d;
 vi f;
 
-// 深さ優先探索
 vector<bool> seen;
-void dfs(const Graph &to, int v, int& ptr) {
+void dfs(const vvi &to, int v, int& ptr) {
   d[v] = ptr++; //行きがけ順
-  seen[v] = true; // v を訪問済にする
-  // v から行ける各頂点 next_v について
-  for (auto next_v : to[v]) { 
-    if (seen[next_v]) continue; // next_v が探索済だったらスルー
-    dfs(to, next_v, ptr); // 再帰的に探索
+  seen[v] = true;
+  for (auto nv : to[v]) { 
+    if (seen[nv]) continue;
+    dfs(to, nv, ptr);
   }
   f[v] = ptr++; //帰りがけ順
 }
@@ -35,7 +33,7 @@ void dfs(const Graph &to, int v, int& ptr) {
 int main(){
   int n;
   cin >> n;
-  Graph to(n);
+  vvi to(n);
   rep(i,n){
     int u,k;
     cin >> u >> k;
