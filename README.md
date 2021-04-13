@@ -18,27 +18,31 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 ### 素数
 - [エラトステネスの篩-素因数分解](https://github.com/shu8Cream/algorithm/blob/main/eratosthenes.cpp)
 
+
 ## 探索法
 様々な探索手法に関する実装
 
 - [二分探索](https://github.com/shu8Cream/algorithm/blob/main/binary_search.cpp)
 - 三分探索
 
-## Tree
-木に関するアルゴリズム
-
-### LCA
-- [LCA(by doubling)](https://github.com/shu8Cream/algorithm/blob/main/lca.cpp)
 
 ## Graph
 グラフに関するアルゴリズム
 
 ### DFS・BFS
 - [DFS(time stamp)](https://github.com/shu8Cream/algorithm/blob/main/dfs.cpp)
-- [BFS(temple)](https://github.com/shu8Cream/algorithm/blob/main/bfs.cpp)
+- DFS(グリッド)
+- [BFS(template)](https://github.com/shu8Cream/algorithm/blob/main/bfs.cpp)
+- BFS(グリッド)
 
 ### 最短経路
 - [単一始点最短路（Dijkstra法、正辺のみ）](https://github.com/shu8Cream/algorithm/blob/main/dijkstra.cpp)
+
+### 木の関連
+- [木の直径](https://github.com/shu8Cream/algorithm/blob/main/tree_diameter.cpp)
+- 木の重心
+- [LCA(by doubling)](https://github.com/shu8Cream/algorithm/blob/main/lca.cpp)
+
 
 ## データ構造
 様々なデータ構造に関する実装
@@ -46,8 +50,14 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [Union-Find(マージテク)](https://github.com/shu8Cream/algorithm/blob/main/unionfind.cpp)
 - [Binary Indexed Tree(BIT)](https://github.com/shu8Cream/algorithm/blob/main/BIT.cpp)
 
+## DP
+動的計画法に関する実装
+
+- LIS 
+
 ## String
 - [Z-algorithm](https://github.com/shu8Cream/algorithm/blob/main/z-algorithm.cpp)
+
 
 ## Others
 - [座標圧縮（１次元）](https://github.com/shu8Cream/algorithm/blob/main/compress1.cpp)
