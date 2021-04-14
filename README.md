@@ -8,6 +8,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 
 ### mod
 - [mod_power](https://github.com/shu8Cream/algorithm/blob/main/mod_power.cpp)
+- [二項係数(mod)](https://github.com/shu8Cream/algorithm/blob/main/nCk.cpp)
 
 ### 約数
 - [約数列挙](https://github.com/shu8Cream/algorithm/blob/main/divisor.cpp)
