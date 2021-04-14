@@ -71,7 +71,7 @@ mint nCk(int n, int k){
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-  	init();
+    init();
     int n,k;
     cin >> n >> k;
     mint ans = nCk(n,k);
