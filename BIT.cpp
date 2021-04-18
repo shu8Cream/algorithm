@@ -35,7 +35,7 @@ public:
         }
     }
 
-    T RangeSum(int idx){
+    T sum(int idx){
         T res = 0;
         idx++;
         if(idx<0 || n<idx){ cerr << "Index error" << endl; return 0; }
@@ -46,8 +46,9 @@ public:
         return res;
     }
 
-    T RangeSum(int l, int r){
-        return RangeSum(r)-RangeSum(l-1);
+    T sum(int l, int r){
+        if(l==0) return sum(r-1);
+        return sum(r-1)-sum(l-1);
     }
 };
 
@@ -62,9 +63,9 @@ int main() {
     BIT<int> bit(n);
     ll ans = 0;
     rep(i,n){
-        ans+=bit.RangeSum(n-1)-bit.RangeSum(a[i]);
+        ans+=bit.sum(n-1)-bit.sum(a[i]);
         bit.add(a[i],1);
     }
-    //rep(i,n-1) cout << bit.RangeSum(i,i+1) << endl;
+    //rep(i,n-1) cout << bit.sum(i,i+1) << endl;
     cout << ans << endl;
 }
