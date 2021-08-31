@@ -35,6 +35,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - DFS(グリッド)
 - [BFS(template)](https://github.com/shu8Cream/algorithm/blob/main/bfs.cpp)
 - BFS(グリッド)
+- [トポロジカルソート（BFS実装・閉路検出可能）](https://github.com/shu8Cream/algorithm/blob/main/topological_sort.cpp)
 
 ### 最短経路
 - [単一始点最短路（Dijkstra法、正辺のみ）](https://github.com/shu8Cream/algorithm/blob/main/dijkstra.cpp)
