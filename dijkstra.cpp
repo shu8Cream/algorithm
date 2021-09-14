@@ -14,32 +14,31 @@ using ll = long long;
 using P = pair<int,int>;
 using vi = vector<int>;
 using vvi = vector<vi>;
-using Graph = vvi;
 
-const int INF = 1e9+1;
+const ll INF = 8e18;
 const int MAX_V = 100100;
 
-struct edge { int to, cost; };
+struct edge { int to; ll cost; };
 
-int V, d[MAX_V]; //dはコスト配列
-vector<edge> G[MAX_V]; //辺とコストを受け取るグラフ
+ll d[MAX_V];
+vector<edge> G[MAX_V];
 
-void dijkstra(int s) { //始点を与える
+//始点を与える
+void dijkstra(int s) {
     rep (i,MAX_V) d[i] = INF;
     d[s] = 0;
-    // 小さい順に取り出される優先度付きキュー
-    priority_queue<P, vector<P>, greater<P>> que;
-    que.push(P(0, s));
-    while (!que.empty()) {
-        P p = que.top();
-        que.pop();
+    priority_queue<P, vector<P>, greater<P>> q;
+    q.push(P(0, s));
+    while (!q.empty()) {
+        P p = q.top();
+        q.pop();
         int v = p.second;
         if (d[v] < p.first) continue;
         for (auto e : G[v]) {
-        if (d[e.to] > d[v] + e.cost) {
-            d[e.to] = d[v] + e.cost;
-            que.push(P(d[e.to], e.to));
-        }
+            if (d[e.to] > d[v] + e.cost) {
+                d[e.to] = d[v] + e.cost;
+                q.push(P(d[e.to], e.to));
+            }
         }
     }
 }
