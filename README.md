@@ -12,7 +12,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 
 ### 約数
 - [約数列挙](https://github.com/shu8Cream/algorithm/blob/main/divisor.cpp)
-- [最大公約数(ユークリッドの互除法)](https://github.com/shu8Cream/algorithm/blob/main/gcd.cpp)
+- [最大公約数（ユークリッドの互除法）](https://github.com/shu8Cream/algorithm/blob/main/gcd.cpp)
 - [最小公倍数](https://github.com/shu8Cream/algorithm/blob/main/lcm.cpp)
 - [拡張ユークリッドの互除法](https://github.com/shu8Cream/algorithm/blob/main/ext_gcd.cpp)
 
@@ -48,19 +48,21 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 
 ### 重みつき辺
 - [最小全域木（クラスカル法）](https://github.com/shu8Cream/algorithm/blob/main/kruskal.cpp)
-- [最小全域木（プリム法）](https://github.com/shu8Cream/algorithm/blob/main/prim.cpp)
+- [最小全域木（プリム法）（未実装）](https://github.com/shu8Cream/algorithm/blob/main/prim.cpp)
 
 ## データ構造
 様々なデータ構造に関する実装
 
-- [Union-Find(マージテク)](https://github.com/shu8Cream/algorithm/blob/main/unionfind.cpp)
+- [Union-Find（マージテク）](https://github.com/shu8Cream/algorithm/blob/main/unionfind.cpp)
 - [Binary Indexed Tree(BIT)](https://github.com/shu8Cream/algorithm/blob/main/BIT.cpp)
 - [SegmentTree](https://github.com/shu8Cream/algorithm/blob/main/segment_tree.cpp)
 
 ## DP
 動的計画法に関する実装
 
-- [LIS(最長増加部分列)](https://github.com/shu8Cream/algorithm/blob/main/lis.cpp) 
+- [LIS（最長増加部分列）](https://github.com/shu8Cream/algorithm/blob/main/lis.cpp) 
+- [LCS（最長共通部分列）](https://github.com/shu8Cream/algorithm/blob/main/LCS.cpp)
+- [編集距離（レーベンシュタイン距離）](https://github.com/shu8Cream/algorithm/blob/main/EditDistance.cpp)
 
 ## String
 - [Z-algorithm](https://github.com/shu8Cream/algorithm/blob/main/z-algorithm.cpp)
@@ -70,3 +72,4 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [座標圧縮（１次元）](https://github.com/shu8Cream/algorithm/blob/main/compress1.cpp)
 - [行列基本演算](https://github.com/shu8Cream/algorithm/blob/main/matrix.cpp)
 - [二次元累積和](https://github.com/shu8Cream/algorithm/blob/main/cumulativeSum2D.cpp)
+- [n進法変換（未実装）]()
