@@ -16,19 +16,12 @@ using ll = long long;
 using vi = vector<int>;
 
 template <typename T>
-vector<T> compress(vector<T> a){
-    vector<T> b;
-    set<T> s;
-    int n = a.size();
-    rep(i,n) s.insert(a[i]);
-    map<T,T> m;
-    int i=0;
-    for(auto p : s){
-        m[p]=i;
-        i++;
-    }
-    rep(i,n) b.push_back(m[a[i]]);
-    return b;
+vector<T> compress(vector<T> &a){
+    auto b = a;
+    sort(all(b));
+    b.erase(unique(all(b)), b.end());
+    for(auto &p:a) p = lower_bound(all(b),p) - b.begin();
+    return a;
 }
 
 int main() {
