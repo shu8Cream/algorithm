@@ -73,3 +73,4 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [行列基本演算](https://github.com/shu8Cream/algorithm/blob/main/matrix.cpp)
 - [二次元累積和](https://github.com/shu8Cream/algorithm/blob/main/cumulativeSum2D.cpp)
 - [n進法変換（未実装）]()
+- [有理数クラス]()
