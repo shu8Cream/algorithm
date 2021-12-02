@@ -39,7 +39,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 
 ### 最短経路
 - [単一始点最短路（Dijkstra法、正辺のみ）](https://github.com/shu8Cream/algorithm/blob/main/dijkstra.cpp)
-- [ベルマンフォード法（負辺可、負の閉路検出、O(V＊E)）]()
+- [ベルマンフォード法（負辺可、負の閉路検出、O(V＊E)）](https://github.com/shu8Cream/algorithm/blob/main/bellmanford.cpp)
 
 ### 木の関連
 - [木の直径](https://github.com/shu8Cream/algorithm/blob/main/tree_diameter.cpp)
@@ -49,6 +49,10 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 ### 重みつき辺
 - [最小全域木（クラスカル法）](https://github.com/shu8Cream/algorithm/blob/main/kruskal.cpp)
 - [最小全域木（プリム法）（未実装）](https://github.com/shu8Cream/algorithm/blob/main/prim.cpp)
+
+### ネットワークフロー
+- [最大流問題（Ford-Fulkerson）](https://github.com/shu8Cream/algorithm/blob/main/FordFulkerson.cpp)
+- [最小費用流問題（）]
 
 ## データ構造
 様々なデータ構造に関する実装
@@ -65,6 +69,8 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [編集距離（レーベンシュタイン距離）](https://github.com/shu8Cream/algorithm/blob/main/EditDistance.cpp)
 
 ## String
+文字列に関するアルゴリズム
+
 - [Z-algorithm](https://github.com/shu8Cream/algorithm/blob/main/z-algorithm.cpp)
 
 
