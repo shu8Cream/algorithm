@@ -7,6 +7,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 整数に関するアルゴリズム
 
 ### mod
+- [mod_int](https://github.com/shu8Cream/algorithm/blob/main/mod_int.cpp)
 - [mod_power](https://github.com/shu8Cream/algorithm/blob/main/mod_power.cpp)
 - [二項係数(mod)](https://github.com/shu8Cream/algorithm/blob/main/nCk.cpp)
 
