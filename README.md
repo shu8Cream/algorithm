@@ -83,3 +83,4 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [二次元累積和](https://github.com/shu8Cream/algorithm/blob/main/cumulativeSum2D.cpp)
 - [n進法変換（未実装）]()
 - [有理数クラス](https://github.com/shu8Cream/algorithm/blob/main/RationalNum.cpp)
+- [Mo's Algorithm](https://github.com/shu8Cream/algorithm/blob/main/mo_algorithm.cpp)
