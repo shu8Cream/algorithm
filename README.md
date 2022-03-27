@@ -38,6 +38,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [BFS(template)](https://github.com/shu8Cream/algorithm/blob/main/bfs.cpp)
 - BFS(グリッド)
 - [トポロジカルソート（BFS実装・閉路検出可能）](https://github.com/shu8Cream/algorithm/blob/main/topological_sort.cpp)
+- [強連結成分分解（SCC）](https://github.com/shu8Cream/algorithm/blob/main/scc.cpp)
 
 ### 最短経路
 - [単一始点最短路（Dijkstra法、正辺のみ）](https://github.com/shu8Cream/algorithm/blob/main/dijkstra.cpp)
@@ -54,13 +55,14 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 
 ### ネットワークフロー
 - [最大流問題（Ford-Fulkerson）](https://github.com/shu8Cream/algorithm/blob/main/FordFulkerson.cpp)
-- [最小費用流問題（）]
+- [最大流問題（Dinic）]
+- [最小費用流問題]
 
 ## データ構造
 様々なデータ構造に関する実装
 
 - [Union-Find（マージテク）](https://github.com/shu8Cream/algorithm/blob/main/unionfind.cpp)
-- [Binary Indexed Tree(BIT)](https://github.com/shu8Cream/algorithm/blob/main/BIT.cpp)
+- [BinaryIndexedTree(BIT)](https://github.com/shu8Cream/algorithm/blob/main/BIT.cpp)
 - [SegmentTree](https://github.com/shu8Cream/algorithm/blob/main/segment_tree.cpp)
 - [SplayTree](https://github.com/shu8Cream/algorithm/blob/main/splay_tree.cpp)
 
