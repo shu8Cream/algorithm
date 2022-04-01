@@ -65,6 +65,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [BinaryIndexedTree(BIT)](https://github.com/shu8Cream/algorithm/blob/main/BIT.cpp)
 - [SegmentTree](https://github.com/shu8Cream/algorithm/blob/main/segment_tree.cpp)
 - [SplayTree](https://github.com/shu8Cream/algorithm/blob/main/splay_tree.cpp)
+- [Binary Trie](https://github.com/shu8Cream/algorithm/blob/main/binary_trie.cpp)
 
 ## DP
 動的計画法に関する実装
