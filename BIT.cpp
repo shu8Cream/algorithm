@@ -29,7 +29,7 @@ public:
 
     void add(int idx, T x){
         idx++;
-        if(idx<=0 || n<idx){ cerr << "Index error" << endl; return; }
+        assert(0<idx && idx<=n && "Index error");
         for(int i=idx; i<=n; i+=i&(-i)){
             a[i]+=x;
         }
@@ -38,7 +38,7 @@ public:
     T sum(int idx){
         T res = 0;
         idx++;
-        if(idx<0 || n<idx){ cerr << "Index error" << endl; return 0; }
+        assert(0<=idx && idx<=n && "Index error");
         if(idx==0) return 0;
         for(int i=idx; i>0; i-=(i&-i)){
             res+=a[i];
