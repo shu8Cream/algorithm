@@ -41,7 +41,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [強連結成分分解（SCC）](https://github.com/shu8Cream/algorithm/blob/main/scc.cpp)
 
 ### 最短経路
-- [単一始点最短路（Dijkstra法、正辺のみ）](https://github.com/shu8Cream/algorithm/blob/main/dijkstra.cpp)
+- [単一始点最短路（ダイクストラ法（最短経路木）正辺のみ）](https://github.com/shu8Cream/algorithm/blob/main/dijkstra.cpp)
 - [ベルマンフォード法（負辺可、負の閉路検出、O(V＊E)）](https://github.com/shu8Cream/algorithm/blob/main/bellmanford.cpp)
 
 ### 木の関連
@@ -51,7 +51,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 
 ### 重みつき辺
 - [最小全域木（クラスカル法）](https://github.com/shu8Cream/algorithm/blob/main/kruskal.cpp)
-- [最小全域木（プリム法）（未実装）](https://github.com/shu8Cream/algorithm/blob/main/prim.cpp)
+- [最小全域木（プリム法）](https://github.com/shu8Cream/algorithm/blob/main/prim.cpp)
 
 ### ネットワークフロー
 - [最大流問題（Ford-Fulkerson）](https://github.com/shu8Cream/algorithm/blob/main/FordFulkerson.cpp)
