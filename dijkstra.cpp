@@ -79,7 +79,8 @@ void debug_out(Head H, Tail... T) {
 
 struct edge {int to; ll cost; int id;};
 
-vi dist;
+vi dist;    // 最短距離
+vi dist2;   // 二番目の最短距離
 // 最短経路木
 vc<int> tree;
 
@@ -87,7 +88,7 @@ vc<int> tree;
 void dijkstra(vv<edge> &edges, int V, int s){
     dist.resize(V,INF); dist[s] = 0;
     priority_queue<P, vector<P>, greater<P>> q;
-    tree.resize(V-1);
+    // tree.resize(V-1);
     q.push(P(0, s));
     while (!q.empty()) {
         P p = q.top(); q.pop();
@@ -97,26 +98,57 @@ void dijkstra(vv<edge> &edges, int V, int s){
             if (dist[e.to] > dist[v] + e.cost) {
                 dist[e.to] = dist[v] + e.cost;
                 q.push(P(dist[e.to], e.to));
+                // tree[e.to-1] = e.id+1;
+            }
+        }
+    }
+}
+
+// 二番目の最短距離を求める
+void dijkstra2(vv<edge> &edges, int V, int s){
+    dist.resize(V,INF); dist[s] = 0;
+    dist2.resize(V,INF);
+    priority_queue<P, vector<P>, greater<P>> q;
+    tree.resize(V-1);
+    q.push(P(0, s));
+    while (!q.empty()) {
+        P p = q.top(); q.pop();
+        int v = p.second, d = p.first;
+        if (dist2[v] < d) continue;
+        for (auto e : edges[v]) {
+            ll d2 = d+e.cost;
+            if (dist[e.to] > d2) {
+                swap(dist[e.to], d2);
+                q.push(P(dist[e.to], e.to));
                 tree[e.to-1] = e.id+1;
+            }
+            if(dist2[e.to] > d2 && dist[e.to] < d2){
+                dist2[e.to] = d2;
+                q.push(P(dist2[e.to],e.to));
             }
         }
     }
 }
 
 int main(){
-    int n,m; cin >> n >> m;
+    int n,m,r; cin >> n >> m >> r;
     vv<edge> to(n);
     rep(i,m){
         int s,t; ll w; cin >> s >> t >> w;
-        s--; t--;
+        // s--; t--;
         to[s].push_back((edge){t,w,i});
-        to[t].push_back((edge){s,w,i});
+        // to[t].push_back((edge){s,w,i});
     }
-    dijkstra(to,n,0);
+    dijkstra(to,n,r);
     // 最短経路木を構成する辺の集合
-    cout << tree << endl;
+    // cout << tree << endl;
     rep(i,n){
         if(dist[i]==INF) cout << "INF" << endl;
         else cout << dist[i] << endl;
     }
+    // dijkstra2(to,n,0);
+    // rep(i,n){
+    //     if(dist2[i]==INF) cout << "INF" << endl;
+    //     else cout << dist2[i] << endl;
+    // }
 }
