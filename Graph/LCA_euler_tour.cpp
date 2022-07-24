@@ -6,7 +6,7 @@
  * @date 2022-07-24
  * 
  * @verify https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_C
- * 
+ *         https://judge.yosupo.jp/problem/lca
  */
 
 #include <bits/stdc++.h>
@@ -163,6 +163,8 @@ private:
     }
 };
 
+// AOJ
+/*
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
@@ -184,6 +186,24 @@ int main() {
     cout << lca.par << endl;
 
     cin >> q;
+    rep(qi,q){
+        int u,v; cin >> u >> v;
+        cout << lca.lca(u,v) << endl;
+    }
+}
+*/
+int main(){
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    cout << fixed << setprecision(15);
+    int n,q; cin >> n >> q;
+    LCA lca(n);
+    rep(i,1,n){
+        int p; cin >> p;
+        lca.add_edge(i,p);
+    }
+    lca.build();
+
     rep(qi,q){
         int u,v; cin >> u >> v;
         cout << lca.lca(u,v) << endl;
