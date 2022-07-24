@@ -48,6 +48,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [木の直径](https://github.com/shu8Cream/algorithm/blob/main/Graph/tree_diameter.cpp)
 - 木の重心
 - [LCA(by doubling)](https://github.com/shu8Cream/algorithm/blob/main/Graph/lca.cpp)
+- [LCA(EulerTour & RMQ)](https://github.com/shu8Cream/algorithm/blob/main/Graph/LCA_euler_tour.cpp)
 
 ### 重みつき辺
 - [最小全域木（クラスカル法）](https://github.com/shu8Cream/algorithm/blob/main/Graph/kruskal.cpp)
