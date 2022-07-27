@@ -149,6 +149,10 @@ struct LCA{
         return lca(mn,mx);
     }
 
+    int dist(int u, int v){
+        return dep[in[u]]+dep[in[v]]-2*dep[in[lca(u,v)]];
+    }
+
 private:
     void dfs(int v, int &time){
         in[v] = time++;
@@ -163,12 +167,7 @@ private:
     }
 };
 
-// AOJ
-/*
-int main() {
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
-    cout << fixed << setprecision(15);
+void AOJ_LCA() {
     int n,q; cin >> n;
     LCA lca(n);
     rep(i,n){
@@ -179,11 +178,11 @@ int main() {
         }
     }
     lca.build();
-    cout << lca.in << endl;
-    cout << lca.out << endl;
-    cout << lca.edge << endl;
-    cout << lca.dep << endl;
-    cout << lca.par << endl;
+    // cout << lca.in << endl;
+    // cout << lca.out << endl;
+    // cout << lca.edge << endl;
+    // cout << lca.dep << endl;
+    // cout << lca.par << endl;
 
     cin >> q;
     rep(qi,q){
@@ -191,11 +190,8 @@ int main() {
         cout << lca.lca(u,v) << endl;
     }
 }
-*/
-int main(){
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
-    cout << fixed << setprecision(15);
+
+void Lowest_Common_Ancestor(){
     int n,q; cin >> n >> q;
     LCA lca(n);
     rep(i,1,n){
@@ -208,4 +204,28 @@ int main(){
         int u,v; cin >> u >> v;
         cout << lca.lca(u,v) << endl;
     }
+}
+
+void ABC014_D(){
+    int n; cin >> n;
+    LCA lca(n);
+    rep(i,n-1){
+        int x,y; cin >> x >> y;
+        lca.add_edge(x-1,y-1); 
+    }
+    lca.build();
+    int q; cin >> q;
+    rep(qi,q){
+        int u,v; cin >> u >> v;
+        cout << lca.dist(u-1,v-1)+1 << endl;
+    }
+}
+
+int main(){
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    cout << fixed << setprecision(15);
+    // AOJ_LCA();
+    // Lowest_Common_Ancestor();
+    ABC014_D();
 }
