@@ -1,7 +1,13 @@
 /**
-*    author:  shu8Cream
-*    created: 16.07.2022 18:34:06
-**/
+ * @file sparse_table.cpp
+ * @author shu8Cream
+ * @brief 
+ * @version 0.1
+ * @date 2022-07-31
+ * 
+ * @verify https://judge.yosupo.jp/problem/staticrmq
+ * 
+ */
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -70,9 +76,10 @@ void debug_out(Head H, Tail... T) {
 #define debug(...)
 #endif
 
+template<typename T=ll>
 struct SparseTable{
-    vvi table;
-    SparseTable(vi arr) {
+    vv<T> table;
+    SparseTable(vc<T> arr) {
         int n = sz(arr);
         int len = 0;
         while((1<<len)<=n) len++;
@@ -92,7 +99,7 @@ struct SparseTable{
     }
 
     // [l,r), 0-indexed
-    ll query(int l, int r){
+    T query(int l, int r){
         assert(l<r);
         int rng = r-l;
         int lg = 31 - __builtin_clz(rng);
