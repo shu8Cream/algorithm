@@ -1,7 +1,13 @@
 /**
-*    author:  shu8Cream
-*    created: 19.07.2021 23:19:21
-**/
+ * @file kruskal.cpp
+ * @author shu8Cream
+ * @brief 
+ * @version 0.1
+ * @date 2022-08-08
+ * 
+ * @verify
+ * 
+ */
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -23,7 +29,7 @@ template<class T> inline bool chmin(T& a, T b) {
     return false;
 }
 
-template<typename T>
+template<typename T=ll>
 struct edge {
     int from, to;
     T cost;
