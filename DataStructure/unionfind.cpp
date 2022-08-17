@@ -1,12 +1,17 @@
-//
-// Union Find(マージテク)
-//
-/*
+/**
+ * @file unionfind.cpp
+ * @author shu8Cream
+ * @brief 
+ * @version 0.1
+ * @date 2022-07-29
+ * 
+ * @verify
+ * 
+ * @details マージテク（データ構造をマージする一般的なテク） O(NlogN^2)
+ *          連結成分の個数はsetで全頂点の親を探索して、setのサイズ
+ * 
+ */
 
-    マージテク（データ構造をマージする一般的なテク） O(NlogN^2)
-    連結成分の個数はsetで全頂点の親を探索して、setのサイズ
-
-*/
 #include <bits/stdc++.h>
 using namespace std;
 #define rep(i,n) for (int i=0; i<(n); i++)
@@ -18,7 +23,8 @@ using Graph = vvi;
 
 struct UnionFind{
     vector<int> par;
-    vector<map<int, int>> mp;
+    // vector<map<int, int>> mp;
+    UnionFind(){}
     UnionFind(int n=0): par(n, -1), mp(n) {}
     int find(int x){
         if(par[x] < 0) return x;
@@ -28,10 +34,10 @@ struct UnionFind{
         x = find(x); y = find(y);
         if(x == y) return false;
         if(par[x] > par[y]) swap(x,y); //マージテク
-        for(auto p : mp[y]){
-            mp[x][p.first] += p.second;
-        }
-        mp[y] = map<int,int>(); //メモリの解放
+        // for(auto p : mp[y]){
+        //     mp[x][p.first] += p.second;
+        // }
+        // mp[y] = map<int,int>(); //メモリの解放
         par[x] += par[y];
         par[y] = x;
         return true;
