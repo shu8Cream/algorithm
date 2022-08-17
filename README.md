@@ -63,6 +63,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 様々なデータ構造に関する実装
 
 - [Union-Find（マージテク）](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/unionfind.cpp)
+- [Undo可能なUnion-Find](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/undoable_unionfind.cpp)
 - [BinaryIndexedTree(BIT)](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/BIT.cpp)
 - [SegmentTree](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/segment_tree.cpp)
 - [SplayTree](https://github.com/shu8Cream/algorithm/blob/main/splay_tree.cpp)
