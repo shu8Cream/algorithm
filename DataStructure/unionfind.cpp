@@ -23,9 +23,8 @@ using Graph = vvi;
 
 struct UnionFind{
     vector<int> par;
-    // vector<map<int, int>> mp;
     UnionFind(){}
-    UnionFind(int n=0): par(n, -1), mp(n) {}
+    UnionFind(int n=0): par(n, -1){}
     int find(int x){
         if(par[x] < 0) return x;
         return par[x] = find(par[x]);
@@ -34,10 +33,6 @@ struct UnionFind{
         x = find(x); y = find(y);
         if(x == y) return false;
         if(par[x] > par[y]) swap(x,y); //マージテク
-        // for(auto p : mp[y]){
-        //     mp[x][p.first] += p.second;
-        // }
-        // mp[y] = map<int,int>(); //メモリの解放
         par[x] += par[y];
         par[y] = x;
         return true;
