@@ -70,7 +70,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [SplayTree](https://github.com/shu8Cream/algorithm/blob/main/splay_tree.cpp)
 - [SparseTable](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/sparse_table.cpp)
 - [Doubling](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/doubling.cpp)
-- [Binary Trie](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/binary_trie.cpp)
+- [BinaryTrie](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/binary_trie.cpp)
 
 ## DP
 動的計画法に関する実装
