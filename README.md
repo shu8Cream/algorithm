@@ -32,13 +32,14 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 ## Graph
 グラフに関するアルゴリズム
 
-### DFS・BFS
+### general
 - [DFS(time stamp)](https://github.com/shu8Cream/algorithm/blob/main/Graph/dfs.cpp)
 - DFS(グリッド)
 - [BFS(template)](https://github.com/shu8Cream/algorithm/blob/main/Graph/bfs.cpp)
 - BFS(グリッド)
 - [トポロジカルソート（BFS実装・閉路検出可能）](https://github.com/shu8Cream/algorithm/blob/main/Graph/topological_sort.cpp)
 - [強連結成分分解（SCC）](https://github.com/shu8Cream/algorithm/blob/main/Graph/scc.cpp)
+- [なもりグラフ](https://github.com/shu8Cream/algorithm/blob/main/Graph/namori.cpp)
 
 ### 最短経路
 - [単一始点最短路（ダイクストラ法（最短経路木）正辺のみ）](https://github.com/shu8Cream/algorithm/blob/main/Graph/dijkstra.cpp)
