@@ -60,6 +60,10 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [最大流問題（Dinic）]
 - [最小費用流問題]
 
+## Geometry
+
+- [基本要素(未verify)](https://github.com/shu8Cream/algorithm/blob/main/Graph/base.cpp)
+
 ## データ構造
 様々なデータ構造に関する実装
 
