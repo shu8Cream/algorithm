@@ -21,14 +21,6 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [エラトステネスの篩-素因数分解](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/eratosthenes.cpp)
 - [ミラーラビン素数判定法](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/miller_rabin.cpp)
 
-
-## 探索法
-様々な探索手法に関する実装
-
-- [二分探索](https://github.com/shu8Cream/algorithm/blob/main/binary_search.cpp)
-- 三分探索
-
-
 ## Graph
 グラフに関するアルゴリズム
 
