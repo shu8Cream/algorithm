@@ -68,6 +68,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [SparseTable](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/sparse_table.cpp)
 - [Doubling](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/doubling.cpp)
 - [BinaryTrie](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/binary_trie.cpp)
+- [永続Stack](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/persistent_stack.cpp)
 
 ## DP
 動的計画法に関する実装
@@ -80,6 +81,10 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 文字列に関するアルゴリズム
 
 - [Z-algorithm](https://github.com/shu8Cream/algorithm/blob/main/String/z-algorithm.cpp)
+- [Manacher]()
+- [KMP]()
+- [SA-IS]()
+- [ローリングハッシュ]()
 
 
 ## Others
@@ -88,7 +93,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [二次元累積和](https://github.com/shu8Cream/algorithm/blob/main/Others/cumulativeSum2D.cpp)
 - [n進法変換（未実装）]()
 - [有理数クラス](https://github.com/shu8Cream/algorithm/blob/main/Others/RationalNum.cpp)
-- [Mo's Algorithm](https://github.com/shu8Cream/algorithm/blob/Others/main/mo_algorithm.cpp)
+- [Mo's Algorithm](https://github.com/shu8Cream/algorithm/blob/Others/mo_algorithm.cpp)
 - [XorShift](https://github.com/shu8Cream/algorithm/blob/main/Others/xorshift.cpp)
 - [ランレングス圧縮](https://github.com/shu8Cream/algorithm/blob/main/Others/run_length_encoding.cpp)
 - [bubble sort](https://github.com/shu8Cream/algorithm/blob/main/Others/bubble_sort.cpp)
