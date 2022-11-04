@@ -88,6 +88,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 
 
 ## Others
+- [ランダム生成器（実験用）](https://github.com/shu8Cream/algorithm/blob/main/Others/random_generator.cpp)
 - [座標圧縮（１次元）](https://github.com/shu8Cream/algorithm/blob/main/Others/compress1.cpp)
 - [行列基本演算](https://github.com/shu8Cream/algorithm/blob/main/Others/matrix.cpp)
 - [二次元累積和](https://github.com/shu8Cream/algorithm/blob/main/Others/cumulativeSum2D.cpp)
