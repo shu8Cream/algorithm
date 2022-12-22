@@ -86,6 +86,10 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [SA-IS]()
 - [ローリングハッシュ]()
 
+### 回文
+- [基本（判定・列挙）](https://github.com/shu8Cream/algorithm/blob/main/String/Palindrome/basic.cpp)
+- [最大回文長（部分文字列）](https://github.com/shu8Cream/algorithm/blob/main/String/Palindrome/longest_palindrome_substring.cpp)
+
 
 ## Others
 - [ランダム生成器（実験用）](https://github.com/shu8Cream/algorithm/blob/main/Others/random_generator.cpp)
@@ -94,7 +98,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [二次元累積和](https://github.com/shu8Cream/algorithm/blob/main/Others/cumulativeSum2D.cpp)
 - [n進法変換（未実装）]()
 - [有理数クラス](https://github.com/shu8Cream/algorithm/blob/main/Others/RationalNum.cpp)
-- [Mo's Algorithm](https://github.com/shu8Cream/algorithm/blob/Others/mo_algorithm.cpp)
+- [Mo's Algorithm](https://github.com/shu8Cream/algorithm/blob/main/Others/mo_algorithm.cpp)
 - [XorShift](https://github.com/shu8Cream/algorithm/blob/main/Others/xorshift.cpp)
 - [ランレングス圧縮](https://github.com/shu8Cream/algorithm/blob/main/Others/run_length_encoding.cpp)
 - [bubble sort](https://github.com/shu8Cream/algorithm/blob/main/Others/bubble_sort.cpp)
