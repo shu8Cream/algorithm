@@ -9,3 +9,5 @@
 
 ## 実装
 - [BinaryIndexedTree(BIT)](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/BIT/BIT.cpp)
+
+## Verified
