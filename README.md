@@ -64,6 +64,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [Undo可能なUnion-Find](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/undoable_unionfind.cpp)
 - [BinaryIndexedTree(BIT)](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/BIT)
 - [SegmentTree](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/segment_tree.cpp)
+- [SegmentTree](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/DynamicSegmentTree)
 - [SplayTree](https://github.com/shu8Cream/algorithm/blob/main/splay_tree.cpp)
 - [SparseTable](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/sparse_table.cpp)
 - [Doubling](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/doubling.cpp)
