@@ -85,7 +85,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [Manacher]()
 - [KMP]()
 - [SA-IS]()
-- [ローリングハッシュ]()
+- [ローリングハッシュ](https://github.com/shu8Cream/algorithm/blob/main/String/RollingHash/rolling_hash.cpp)
 
 ### 回文
 - [基本（判定・列挙）](https://github.com/shu8Cream/algorithm/blob/main/String/Palindrome/basic.cpp)
