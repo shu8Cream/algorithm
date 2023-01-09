@@ -19,7 +19,8 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 
 ### 素数
 - [エラトステネスの篩-素因数分解](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/eratosthenes.cpp)
-- [ミラーラビン素数判定法](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/miller_rabin.cpp)
+- [ミラーラビン素数判定法](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/PollardRho/miller_rabin.cpp)
+- [ポラード・ロー素因数分解法](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/PollardRho/pollard_rho.cpp)
 
 ## Graph
 グラフに関するアルゴリズム
