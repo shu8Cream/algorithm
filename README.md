@@ -16,6 +16,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [最大公約数（ユークリッドの互除法）](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/gcd.cpp)
 - [最小公倍数](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/lcm.cpp)
 - [拡張ユークリッドの互除法](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/ext_gcd.cpp)
+- [中国剰余定理](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/ChineseRemainderTheorem/chinese_remainder_theorem.cpp)
 
 ### 素数
 - [エラトステネスの篩-素因数分解](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/eratosthenes.cpp)
