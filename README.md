@@ -16,12 +16,12 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [最大公約数（ユークリッドの互除法）](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/gcd.cpp)
 - [最小公倍数](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/lcm.cpp)
 - [拡張ユークリッドの互除法](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/ext_gcd.cpp)
-- [中国剰余定理](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/ChineseRemainderTheorem/chinese_remainder_theorem.cpp)
+- [中国剰余定理](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/ChineseRemainderTheorem)
 
 ### 素数
 - [エラトステネスの篩-素因数分解](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/eratosthenes.cpp)
 - [ミラーラビン素数判定法](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/PollardRho/miller_rabin.cpp)
-- [ポラード・ロー素因数分解法](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/PollardRho/pollard_rho.cpp)
+- [ポラード・ロー素因数分解法](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/PollardRho)
 
 ## Graph
 グラフに関するアルゴリズム
@@ -33,12 +33,12 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - BFS(グリッド)
 - [トポロジカルソート（BFS実装・閉路検出可能）](https://github.com/shu8Cream/algorithm/blob/main/Graph/topological_sort.cpp)
 - [強連結成分分解（SCC）](https://github.com/shu8Cream/algorithm/blob/main/Graph/scc.cpp)
-- [なもりグラフ](https://github.com/shu8Cream/algorithm/blob/main/Graph/Namori/namori.cpp)
+- [なもりグラフ](https://github.com/shu8Cream/algorithm/blob/main/Graph/Namori)
 
 ### 最短経路
 - [単一始点最短路（ダイクストラ法（最短経路木）正辺のみ）](https://github.com/shu8Cream/algorithm/blob/main/Graph/dijkstra.cpp)
 - [ベルマンフォード法（負辺可、負の閉路検出、$O(V \times E)$）](https://github.com/shu8Cream/algorithm/blob/main/Graph/bellmanford.cpp)
-- [ワーシャルフロイド法（全点対間最短経路 $O(V^3)$）](https://github.com/shu8Cream/algorithm/blob/main/Graph/Floyd–Warshall/warshall_floyd.cpp)
+- [ワーシャルフロイド法（全点対間最短経路 $O(V^3)$）](https://github.com/shu8Cream/algorithm/blob/main/Graph/Floyd–Warshall)
 
 ### 木の関連
 - [木の直径](https://github.com/shu8Cream/algorithm/blob/main/Graph/tree_diameter.cpp)
