@@ -37,7 +37,8 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 
 ### 最短経路
 - [単一始点最短路（ダイクストラ法（最短経路木）正辺のみ）](https://github.com/shu8Cream/algorithm/blob/main/Graph/dijkstra.cpp)
-- [ベルマンフォード法（負辺可、負の閉路検出、O(V＊E)）](https://github.com/shu8Cream/algorithm/blob/main/Graph/bellmanford.cpp)
+- [ベルマンフォード法（負辺可、負の閉路検出、$O(V \times E)$）](https://github.com/shu8Cream/algorithm/blob/main/Graph/bellmanford.cpp)
+- [ワーシャルフロイド法（全点対間最短経路 $O(V^3)$）](https://github.com/shu8Cream/algorithm/blob/main/Graph/Floyd–Warshall/warshall_floyd.cpp)
 
 ### 木の関連
 - [木の直径](https://github.com/shu8Cream/algorithm/blob/main/Graph/tree_diameter.cpp)
