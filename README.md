@@ -19,7 +19,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [中国剰余定理](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/ChineseRemainderTheorem)
 
 ### 素数
-- [エラトステネスの篩-素因数分解](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/eratosthenes.cpp)
+- [エラトステネスの篩-素因数分解](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/Eratosthenes)
 - [ミラーラビン素数判定法](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/PollardRho/miller_rabin.cpp)
 - [ポラード・ロー素因数分解法](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/PollardRho)
 
@@ -45,6 +45,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - 木の重心
 - [LCA(by doubling)](https://github.com/shu8Cream/algorithm/blob/main/Graph/lca.cpp)
 - [LCA(EulerTour & RmQ)](https://github.com/shu8Cream/algorithm/blob/main/Graph/LCA_euler_tour.cpp)
+- [HL分解](https://github.com/shu8Cream/algorithm/blob/main/Graph/HLD)
 
 ### 重みつき辺
 - [最小全域木（クラスカル法）](https://github.com/shu8Cream/algorithm/blob/main/Graph/kruskal.cpp)
@@ -89,7 +90,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [Manacher]()
 - [KMP]()
 - [SA-IS]()
-- [ローリングハッシュ](https://github.com/shu8Cream/algorithm/blob/main/String/RollingHash/rolling_hash.cpp)
+- [ローリングハッシュ](https://github.com/shu8Cream/algorithm/blob/main/String/RollingHash)
 
 ### 回文
 - [基本（判定・列挙）](https://github.com/shu8Cream/algorithm/blob/main/String/Palindrome/basic.cpp)
