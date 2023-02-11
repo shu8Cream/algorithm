@@ -1,11 +1,7 @@
-//
-//  Sieve of Eratosthenes(エラトステネスの篩)
-//
-/*
-
-    計算量 O(NloglogN)
-
-*/
+/**
+*    author:  shu8Cream
+*    created: 11.02.2023 12:27:29
+**/
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -124,8 +120,7 @@ struct Sieve{
         sort(a.begin(),a.begin()+cnt);
         return cnt;
     }
-};
-Sieve sieve(15001000);
+}sieve(15001000);
 
 void YUKI2043(){
     ll a,b,s;
