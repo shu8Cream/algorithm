@@ -6,6 +6,8 @@
 ## 実装
 - [DynamicSegmentTree（抽象化）](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/DynamicSegmentTree/dynamic_segment_tree.cpp)
 - [DynamicSegmentTree（RSQ）](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/DynamicSegmentTree/dynamic_segtree_for_rangesum.cpp)
+- [RangeCountQuery](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/DynamicSegmentTree/range_count_query.cpp)
+
 
 ## Verified
 
