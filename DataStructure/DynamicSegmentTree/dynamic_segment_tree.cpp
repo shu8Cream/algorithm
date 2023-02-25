@@ -134,7 +134,7 @@ struct F { ld a, b; };
 F op(F t, F r) { return {t.a*r.a, r.a*t.b + r.b}; }
 F e() { return {1.0, 0.0}; }
 
-// RangeSum / point update
+// // RangeSum / point update
 // using S = ll;
 // S op(S a, S b) { return a+b; }
 // S e() { return 0; }
