@@ -13,6 +13,7 @@
 <!-- - [ダイクストラ（二番目）](https://github.com/shu8Cream/algorithm/blob/main/Graph/Dijkstra/dijkstra_second.cpp) -->
 
 ## verify
+- [GRL_1_A Single Source Shortest Path](https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_A)
 - [ABC252E Road Reduction](https://atcoder.jp/contests/abc252/tasks/abc252_e)
 - [PAST第一回J](https://atcoder.jp/contests/past201912-open/tasks/past201912_j)
 
