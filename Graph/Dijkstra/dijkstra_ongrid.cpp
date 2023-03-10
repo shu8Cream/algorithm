@@ -91,86 +91,78 @@ void debug_out(Head H, Tail... T) {
 #define debug(...)
 #endif
 
-using PP = pair<int,P>;
+template<typename T>
+struct Dijkstra {
+    using PP = pair<int,P>;
+    const T inf = numeric_limits<T>::max();
+    static constexpr int dx[4] = {1,0,-1,0};
+    static constexpr int dy[4] = {0,-1,0,1};
+    int H,W;
+    vc<string> field;
+    vv<T> cost;
+    vv<P> pre;
+    Dijkstra(){}
+    Dijkstra(int H, int W, vv<T> cost): H(H), W(W), cost(cost), field(H,string(W,'.')), pre(H,vc<P>(W,P(-1,-1))) {}
+    Dijkstra(int H, int W, vv<T> cost, vc<string> field): H(H), W(W), cost(cost), field(field), pre(H,vc<P>(W,P(-1,-1))) {}
 
-constexpr int DR[4] = {1,0,-1,0};
-constexpr int DC[4] = {0,1,0,-1};
-const string direction = "DRUL";
+    bool out_of_grid(int y, int x){
+        if(y<0 || y>=H || x<0 || x>=W) return true;
+        return field[y][x]=='#';
+    }
 
-int H,W; 
-int a[55][55];
-P pre[55][55]; // 経路復元
-
-bool out_of_grid(int y, int x){
-    if(y<0 || y>=H || x<0 || x>=W) return true;
-    return false;
-}
-
-void dijkstra(int sy, int sx, vvi &dist){
-    dist[sy][sx] = 0;
-    priority_queue<PP, vector<PP>, greater<PP>> q;
-    q.emplace(PP(0,P(sy,sx)));
-    while(sz(q)){
-        auto[nowD,pos] = q.top(); q.pop();
-        auto[y,x] = pos;
-        rep(v,4){
-            int ny = y+DR[v], nx = x+DC[v];
-            if(out_of_grid(ny,nx)) continue;
-            if(dist[ny][nx]>a[ny][nx] + nowD){
-                dist[ny][nx] = a[ny][nx] + nowD;
-                pre[ny][nx] = P(y,x);
-                q.emplace(PP(dist[ny][nx],P(ny,nx)));
+    vv<T> getDist(int sy, int sx){
+        vv<T> dist(H,vc<T>(W,inf));
+        dist[sy][sx] = 0;
+        priority_queue<PP, vector<PP>, greater<PP>> q;
+        q.emplace(0,P(sy,sx));
+        while(sz(q)){
+            auto[nowD,pos] = q.top(); q.pop();
+            auto[y,x] = pos;
+            rep(v,4){
+                int ny = y+dy[v], nx = x+dx[v];
+                if(out_of_grid(ny,nx)) continue;
+                if(dist[ny][nx]>cost[ny][nx] + nowD){
+                    dist[ny][nx] = cost[ny][nx] + nowD;
+                    pre[ny][nx] = P(y,x);
+                    q.emplace(dist[ny][nx],P(ny,nx));
+                }
             }
         }
+        return dist;
     }
-}
 
-vc<P> restore(int ty, int tx){
-    vc<P> res;
-    int ny,nx;
-    do{
-        res.emplace_back(ty,tx);
-        ny = ty, nx = tx;
-        tie(ty,tx) = pre[ny][nx];
-    }while(ty!=-1||tx!=-1);
-    reverse(all(res));
-    return res;
-}
+    vc<P> restore(int ty, int tx){
+        vc<P> res;
+        int ny,nx;
+        do{
+            res.emplace_back(ty,tx);
+            ny = ty, nx = tx;
+            tie(ty,tx) = pre[ny][nx];
+        }while(ty!=-1||tx!=-1);
+        reverse(all(res));
+        return res;
+    }
+};
 
-int main(){
-    cin.tie(nullptr);
-    ios::sync_with_stdio(false);
-    cout << fixed << setprecision(15);
-    cin >> H >> W;
+void PAST1_J(){
+    int H,W; cin >> H >> W;
+    vvi a(H,vi(W));
     rep(i,H)rep(j,W) cin >> a[i][j];
-    vvi dist(H,vi(W,INF));
-    vvi dist2(H,vi(W,INF));
-    vvi dist3(H,vi(W,INF));
-
-    dijkstra(H-1,0,dist);
-    dijkstra(H-1,W-1,dist2);
-    dijkstra(0,W-1,dist3);
-
-    {
-        rep(i,H){
-            rep(j,W) cerr<<dist[i][j]<<"\t";
-            cerr<<endl;
-        }
-        cerr<<"------"<<endl;
-        rep(i,H){
-            rep(j,W) cerr<<dist2[i][j]<<"\t";
-            cerr<<endl;
-        }
-        cerr<<"------"<<endl;
-        rep(i,H){
-            rep(j,W) cerr<<dist3[i][j]<<"\t";
-            cerr<<endl;
-        }
-    }
+    Dijkstra<ll> to(H,W,a);
+    vvi dist = to.getDist(H-1,0);
+    vvi dist2 = to.getDist(H-1,W-1);
+    vvi dist3 = to.getDist(0,W-1);
 
     ll ans = LINF;
     rep(y,H)rep(x,W){
         chmin(ans, dist[y][x]+dist2[y][x]+dist3[y][x]-a[y][x]*2);
     }
     cout<<ans<<endl;
+}
+
+int main(){
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    cout << fixed << setprecision(15);
+    PAST1_J();
 }

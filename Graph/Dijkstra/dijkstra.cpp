@@ -102,13 +102,14 @@ struct Dijkstra {
     };
     int n;
     vv<Edge> g;
+    vi pre;
     vc<int> tree;
     Dijkstra(){}
-    Dijkstra(int n): n(n), g(n), tree(n,-1){}
+    Dijkstra(int n): n(n), g(n), pre(n,-1), tree(n,-1){}
 
-    void addEdge(int u, int v, T cost, int id=0, bool isBoth=false){
+    void addEdge(int u, int v, T cost, int id=0, bool both=false){
         g[u].emplace_back(v,cost,id);
-        if(isBoth) g[v].emplace_back(u,cost,id);
+        if(both) g[v].emplace_back(u,cost,id);
     }
 
     vc<T> getDist(int s){
@@ -123,11 +124,19 @@ struct Dijkstra {
                 if (dist[e.to] > nd) {
                     dist[e.to] = nd;
                     q.emplace(dist[e.to], e.to);
+                    pre[e.to] = v;
                     tree[e.to] = e.id;
                 }
             }
         }
         return dist;
+    }
+
+    vi restore(int t){
+        vi path;
+        for (; t != -1; t = pre[t]) path.push_back(t);
+        reverse(all(path));
+        return path;
     }
 };
 
@@ -157,10 +166,27 @@ void ABC252E(){
     rep(i,1,n) cout<<to.tree[i]+1<<(i==n-1?'\n':' ');
 }
 
+void ABC168D(){
+    int n,m; cin >> n >> m;
+    Dijkstra<ll> to(n);
+    rep(i,m){
+        int u,v; cin >> u >> v, u--, v--;
+        to.addEdge(u,v,1,i,true);
+    }
+    vi dist = to.getDist(0);
+    vi ans(n-1);
+    rep(i,n-1){
+        ans[i] = to.pre[i+1]+1;
+    }
+    cout<<"Yes"<<endl;
+    cout<<ans<<endl;
+}
+
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
     cout << fixed << setprecision(15);
-    GRL_1_A();
+    // GRL_1_A();
     // ABC252E();
+    ABC168D();
 }
