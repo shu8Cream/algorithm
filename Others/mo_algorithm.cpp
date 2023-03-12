@@ -69,9 +69,9 @@ void debug_out(Head H, Tail... T) {
 #endif
 
 const int MAX_VAL = 500500;
-int a[MAX_VAL];     //要素
-int cnt[MAX_VAL];   //区間内のiの個数
-int res;            //区間内の種類の数
+ll a[MAX_VAL];     //要素
+ll cnt[MAX_VAL];   //区間内のiの個数
+ll res;            //区間内の種類の数
  
 class Mo{
 private:
@@ -81,7 +81,7 @@ private:
     void del(const int id);
  
 public:
-    vector<int> ans;
+    vi ans;
  
     Mo(const int n) : width((int)sqrt(n)){}
     // クエリ[l,r)
