@@ -44,7 +44,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [ワーシャルフロイド法（全点対間最短経路 O(V^3)）](https://github.com/shu8Cream/algorithm/blob/main/Graph/Floyd–Warshall)
 
 ### 木の関連
-- [木の直径](https://github.com/shu8Cream/algorithm/blob/main/Graph/tree_diameter.cpp)
+- [木の直径](https://github.com/shu8Cream/algorithm/blob/main/Graph/TreeDiameter)
 - 木の重心
 - [LCA(by doubling)](https://github.com/shu8Cream/algorithm/blob/main/Graph/lca.cpp)
 - [LCA(EulerTour & RmQ)](https://github.com/shu8Cream/algorithm/blob/main/Graph/LCA_euler_tour.cpp)
