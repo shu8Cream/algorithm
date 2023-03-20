@@ -1,14 +1,7 @@
 /**
- * @file heavy_light_decomposition.cpp
- * @author shu8Cream
- * @brief 
- * @version 0.1
- * @date 2022-07-23
- * 
- * @verify https://judge.yosupo.jp/problem/vertex_add_path_sum
- *         https://judge.yosupo.jp/problem/lca
- *         
- */
+*    author:  shu8Cream
+*    created: 20.03.2023 23:12:18
+**/
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -29,19 +22,40 @@ template<typename T> using vc = vector<T>;
 template<typename T> using vv = vc<vc<T>>;
 using vi = vc<ll>;
 using vvi = vv<ll>;
-const ll INF = 8e18;
+const int INF = 1e9;
+const ll LINF = 8e18;
 template<typename T>istream& operator>>(istream&i,vc<T>&v){rep(j,sz(v))i>>v[j];return i;}
 template<typename T>string join(const T&v,const string& d=""){stringstream s;rep(i,sz(v))(i?s<<d:s)<<v[i];return s.str();}
 template<typename T>ostream& operator<<(ostream&o,const vc<T>&v){if(sz(v))o<<join(v," ");return o;}
 template<typename T1,typename T2>istream& operator>>(istream&i,pair<T1,T2>&v){return i>>v.first>>v.second;}
 template<typename T1,typename T2>ostream& operator<<(ostream&o,const pair<T1,T2>&v){return o<<v.first<<","<<v.second;}
-template<class T> inline bool chmax(T& a, T b) {
-    if (a < b) { a = b; return true; }
-    return false;
+template<class T> inline bool chmax(T& a, T b) {if(a<b) { a=b;return true; } return false;}
+template<class T> inline bool chmin(T& a, T b) {if(a>b) { a=b;return true; } return false;}
+
+// stable sort
+template <typename T>
+vc<int> argsort(const vc<T> &A) {
+    vc<int> ids(sz(A));
+    iota(all(ids), 0);
+    sort(all(ids),
+        [&](int i, int j) { return (A[i] == A[j] ? i < j : A[i] < A[j]); });
+    return ids;
 }
-template<class T> inline bool chmin(T& a, T b) {
-    if (a > b) { a = b; return true; }
-    return false;
+
+// A[I[0]], A[I[1]], ...
+template <typename T>
+vc<T> rearrange(const vc<T> &A, const vc<int> &I) {
+    vc<T> B(sz(I));
+    rep(i, sz(I)) B[i] = A[I[i]];
+    return B;
+}
+
+template <typename T, typename U>
+vc<T> cumsum(vc<U> &A, int off = 1) {
+    vc<T> B(sz(A) + 1);
+    rep(i, sz(A)) B[i + 1] = B[i] + A[i];
+    if (off == 0) B.erase(B.begin());
+    return B;
 }
 
 template <class T> string to_string(T s);
@@ -124,12 +138,26 @@ struct HLDecomposition {
 
     // 問題によって書き換え
     template<typename F>
-    void query(int u, int v, const F& f){
+    void for_each_node(int u, int v, const F& f){
         while(1){
             if(in[u]>in[v]) swap(u,v);
             f(max(in[head[v]],in[u]),in[v]+1);
             if(head[u]!=head[v]) v = par[head[v]];
             else break;
+        }
+    }
+
+    template<typename F>
+    void for_each_edge(int u, int v, const F& f){
+        while(1){
+            if(in[u]>in[v]) swap(u,v);
+            if(head[u]!=head[v]){
+                f(in[head[v]],in[v]+1);
+                v = par[head[v]];
+            }else{
+                if(u!=v) f(in[u]+1,in[v]+1);
+                break;
+            }
         }
     }
 
@@ -209,7 +237,7 @@ void Vertex_Add_Path_Sum(){
             auto f = [&](int l,int r){
                 ans+=bit.sum(l,r);
             };
-            hld.query(u,v,f);
+            hld.for_each_node(u,v,f);
             cout << ans << "\n";
         }
     }
