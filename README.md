@@ -34,7 +34,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - DFS(グリッド)
 - [BFS(template)](https://github.com/shu8Cream/algorithm/blob/main/Graph/bfs.cpp)
 - BFS(グリッド)
-- [トポロジカルソート（BFS実装・閉路検出可能）](https://github.com/shu8Cream/algorithm/blob/main/Graph/Topsort)
+- [トポロジカルソート（BFS実装・閉路検出可能）](https://github.com/shu8Cream/algorithm/blob/main/Graph/TopSort)
 - [強連結成分分解（SCC）](https://github.com/shu8Cream/algorithm/blob/main/Graph/scc.cpp)
 - [なもりグラフ](https://github.com/shu8Cream/algorithm/blob/main/Graph/Namori)
 
