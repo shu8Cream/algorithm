@@ -121,8 +121,28 @@ struct HLDecomposition {
         dfs_hld(0,time);
     }
 
-    // u: 0-indexed, uからk個登る
-    // int la(int u, int k){}
+    // v: 0-indexed, vからk個登る
+    int la(int v, int k) {
+        while(1) {
+            int u = head[v];
+            if(in[v] - k >= in[u]) return rev[in[v] - k];
+            k -= in[v] - in[u] + 1;
+            v = par[u];
+        }
+    }
+
+    // u~vの単純パスのd番目
+    int jump(int u, int v, int d){
+        int l = lca(u,v);
+        if (d <= dep[u] - dep[l]){
+            return la(u,d);
+        }
+        d -= dep[u] - dep[l];
+        if (d <= dep[v] - dep[l]){
+            return la(v,dep[v]-dep[l]-d);
+        }
+        return -1;
+    }
 
     int lca(int u, int v){
         while(1){
@@ -292,6 +312,63 @@ void ABC014_D(){
     }
 }
 
+void ABC294G(){
+    int n; cin >> n;
+    HLDecomposition hld(n);
+    vi u(n-1),v(n-1),w(n-1);
+    rep(i,n-1){
+        cin >> u[i] >> v[i] >> w[i];
+        u[i]--, v[i]--;
+        hld.add_edge(u[i],v[i]);
+    }
+    hld.build();
+
+    BIT<ll> bit(n);
+    vc<int> cid(n-1);
+    rep(i,n-1){
+        int par  = hld.lca(u[i],v[i]);
+        int ch = u[i]+v[i]-par;
+        bit.add(hld.in[ch],w[i]);
+        cid[i]=ch;
+    }
+
+    int q; cin >> q;
+    int op,a,b;
+    rep(qi,q){
+        cin >> op >> a >> b;
+        if(op==1){
+            a--;
+            bit.add(hld.in[cid[a]],-w[a]);
+            w[a] = b;
+            bit.add(hld.in[cid[a]],w[a]);
+        }
+        if(op==2){
+            a--; b--;
+            ll ans = 0;
+            auto f = [&](int l,int r)->void{
+                ans += bit.sum(l,r);
+            };
+            hld.for_each_edge(a,b,f);
+            cout<<ans<<endl;
+        }
+    }
+}
+
+void PAKENCAMP_2022Day1_G(){
+    int n; cin >> n;
+    HLDecomposition hld(n);
+    rep(i,n-1){
+        int p; cin >> p; p--;
+        hld.add_edge(p,i+1);
+    }
+    hld.build();
+    int q; cin >> q;
+    rep(qi,q){
+        int x,y; cin >> x >> y; x--; y--;
+        cout<<hld.jump(x,y,1)+1<<endl;
+    }
+}
+
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
@@ -299,5 +376,7 @@ int main() {
     // Vertex_Add_Path_Sum();
     // Lowest_Common_Ancestor();
     // AOJ_LCA();
-    ABC014_D();
+    // ABC014_D();
+    // ABC294G();
+    PAKENCAMP_2022Day1_G();
 }
