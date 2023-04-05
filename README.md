@@ -110,5 +110,3 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [XorShift](https://github.com/shu8Cream/algorithm/blob/main/Others/xorshift.cpp)
 - [ランレングス圧縮](https://github.com/shu8Cream/algorithm/blob/main/Others/run_length_encoding.cpp)
 - [bubble sort](https://github.com/shu8Cream/algorithm/blob/main/Others/bubble_sort.cpp)
-
-## a
