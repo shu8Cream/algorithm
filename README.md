@@ -57,11 +57,10 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 
 ### ネットワークフロー
 - [最大流問題（Ford-Fulkerson）](https://github.com/shu8Cream/algorithm/blob/main/Graph/FordFulkerson.cpp)
-- [最大流問題（Dinic）]
+- [最大流問題（Dinic）](https://github.com/shu8Cream/algorithm/blob/main/Graph/Dinic)
 - [最小費用流問題]
 
 ## Geometry
-
 - [基本要素(未verify)](https://github.com/shu8Cream/algorithm/blob/main/Geometry/base.cpp)
 - [偏角ソート](https://github.com/shu8Cream/algorithm/blob/main/Geometry/argument_sort.cpp)
 
