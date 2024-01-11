@@ -22,6 +22,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 - [エラトステネスの篩-素因数分解](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/Eratosthenes)
 - [ミラーラビン素数判定法](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/PollardRho/miller_rabin.cpp)
 - [ポラード・ロー素因数分解法](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/PollardRho)
+- [オイラーのφ関数](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/EulerTotient)
 
 ### 行列
 - [行列基本演算(行列累乗)](https://github.com/shu8Cream/algorithm/blob/main/Mathematics/Matrix)
