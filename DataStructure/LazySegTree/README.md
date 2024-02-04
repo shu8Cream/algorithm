@@ -1,5 +1,8 @@
 # 遅延評価SegmentTree
 
+## 実装
+- [LazySegTree]()
+
 ## 定義が必要なもの
 `S`: モノイドの型
 `F`: 作用の型
@@ -10,6 +13,7 @@
 `F id()`: 作用の単位元
 
 ## ACL LazySegTree チートシート
+- [AtCoder LibraryのLazy Segtreeのチートシート](https://betrue12.hateblo.jp/entry/2020/09/23/005940)
 #### 区間加算・区間最小
 ```cpp
 using S = long long;
