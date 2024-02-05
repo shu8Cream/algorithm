@@ -12,14 +12,7 @@ struct segtree {
 private:
     int _n;                     // 葉の数
     int size;                   // 
-    int log;                    // 
     vector<S> data;             // データ格納
-
-    int Log2(ll x){
-        if(x==0) return 0;
-        using ull = unsigned long long;
-        return 63 - __builtin_clzll(ull(x));
-    }
 
     unsigned int bit_ceil(unsigned int n){
         unsigned int x = 1;
@@ -34,7 +27,6 @@ public:
     segtree(int n): segtree(vector<S>(n,e())) {}
     segtree(const vector<S> &v): _n(int(v.size())) {
         size = (int)bit_ceil((unsigned int)(_n));
-        log = __builtin_ctz(size);
         data = vector<S>(size*2, e());
         for(int i=0; i<_n; i++) data[size+i] = v[i];
         for(int i=size-1; i>=1; i--) update(i);
@@ -68,7 +60,7 @@ public:
 
     S all_prod() const { return data[1]; }
 
-    void _dprint(int l, int r){
+    void _print(int l, int r){
         assert(0<=l && l<=r && r<=_n);
         for(int i=l+size; i<r+size; i++){
             cerr << data[i] << " ";
