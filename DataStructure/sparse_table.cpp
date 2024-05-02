@@ -1,122 +1,64 @@
 /**
- * @file sparse_table.cpp
- * @author shu8Cream
- * @brief 
- * @version 0.1
- * @date 2022-07-31
- * 
- * @verify https://judge.yosupo.jp/problem/staticrmq
- * 
- */
+*    author:  shu8Cream
+*    created: 2024/05/02 01:09:34
+*
+*    @verify https://judge.yosupo.jp/problem/staticrmq
+**/
 
 #include <bits/stdc++.h>
 using namespace std;
-#define overload3(a,b,c,d,...) d
-#define rep1(i,n) for (int i=0; i<(n); i++)
-#define rep2(i,a,n) for (int i=(a); i<(n); i++)
-#define rep(...) overload3(__VA_ARGS__, rep2, rep1)(__VA_ARGS__)
-#define rrep1(i,n) for (int i=(n-1); i>=0; i--)
-#define rrep2(i,a,n) for (int i=(n-1); i>=(a); i--)
-#define rrep(...) overload3(__VA_ARGS__, rrep2, rrep1)(__VA_ARGS__)
-#define all(x) (x).begin(), (x).end()
-#define rall(x) (x).rbegin(), (x).rend()
-#define sz(x) int((x).size())
-#define pcnt __builtin_popcountll
 using ll = long long;
-using P = pair<ll,ll>;
-template<typename T> using vc = vector<T>;
-template<typename T> using vv = vc<vc<T>>;
-using vi = vc<ll>;
-using vvi = vv<ll>;
-const ll INF = 8e18;
-template<typename T>istream& operator>>(istream&i,vc<T>&v){rep(j,sz(v))i>>v[j];return i;}
-template<typename T>string join(const T&v,const string& d=""){stringstream s;rep(i,sz(v))(i?s<<d:s)<<v[i];return s.str();}
-template<typename T>ostream& operator<<(ostream&o,const vc<T>&v){if(sz(v))o<<join(v," ");return o;}
-template<typename T1,typename T2>istream& operator>>(istream&i,pair<T1,T2>&v){return i>>v.first>>v.second;}
-template<typename T1,typename T2>ostream& operator<<(ostream&o,const pair<T1,T2>&v){return o<<v.first<<","<<v.second;}
-template<class T> inline bool chmax(T& a, T b) {
-    if (a < b) { a = b; return true; }
-    return false;
-}
-template<class T> inline bool chmin(T& a, T b) {
-    if (a > b) { a = b; return true; }
-    return false;
-}
 
-template <class T> string to_string(T s);
-template <class S, class T> string to_string(pair<S, T> p);
-string to_string(char c) { return string(1, c); }
-string to_string(string s) { return s; }
-string to_string(const char s[]) { return string(s); }
-
-template <class T>
-string to_string(T v) {
-    if (v.empty()) return "{}";
-    string ret = "{";
-    for (auto x : v) ret += to_string(x) + ",";
-    ret.back() = '}';
-    return ret;
-}
-template <class S, class T>
-string to_string(pair<S, T> p) {
-    return "{" + to_string(p.first) + ":" + to_string(p.second) + "}";
-}
-
-void debug_out() { cout << endl; }
-
-template <typename Head, typename... Tail>
-void debug_out(Head H, Tail... T) {
-    cout << to_string(H) << " ";
-    debug_out(T...);
-}
-
-#ifdef _DEBUG
-#define debug(...) debug_out(__VA_ARGS__)
-#else
-#define debug(...)
-#endif
-
-template<typename T=ll>
+template<class S, S (*op)(S, S), S (*e)()>
 struct SparseTable{
-    vv<T> table;
-    SparseTable(vc<T> arr) {
-        int n = sz(arr);
-        int len = 0;
-        while((1<<len)<=n) len++;
-        table.resize(len);
+    int n;
+    vector<vector<S>> table;
+    SparseTable(){}
+    SparseTable(vector<S> arr): n(arr.size()) {
+        int lgn = 0;
+        while((1<<lgn)<=n) lgn++;
+        table.resize(lgn);
         table[0] = arr;
-        rep(i,1,len){
+        for(int i=1;i<lgn;i++){
             assert(n-(1<<i)+1>0);
-            table[i].resize(n-(1<<i)+1);
-            rep(j,n-(1<<i)+1){
-                table[i][j] = min(table[i-1][j],table[i-1][j+(1<<(i-1))]);
+            table[i].assign(n-(1<<i)+1,e());
+            for(int j=0;j+(1<<i)<=n;j++){
+                table[i][j] = op(table[i-1][j],table[i-1][j+(1<<(i-1))]);
             }
         }
     }
 
-    void debug_view(){
-        rep(i,sz(table)) cerr << table[i] << endl;
-    }
-
-    // [l,r), 0-indexed
-    T query(int l, int r){
-        assert(l<r);
+    S prod(int l, int r) const { // [l,r)  0-indexed
+        assert(0<=l && r<=n);
+        if(l>=r) return e();
         int rng = r-l;
         int lg = 31 - __builtin_clz(rng);
-        assert(r-(1<<lg)>=0);
-        return min(table[lg][l], table[lg][r-(1<<lg)]);
+        return op(table[lg][l], table[lg][r-(1<<lg)]);
+    }
+
+    void debug_view(){
+        for(int i=0;i<table.size();i++){
+            for(int j=0;j<table[i].size();j++) cerr << table[i][j] << (j-1==table[i].size()?"\n":" ");
+        }
     }
 };
+
+using S = ll;
+const ll INF = 8e18;
+
+S op(S a, S b){ return max(a,b); };
+S e() { return 0; }
 
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
     cout << fixed << setprecision(15);
     int n,q; cin >> n >> q;
-    vi a(n); cin >> a;
-    SparseTable sp(a);
-    rep(qi,q){
+    vector<S> a(n);
+    for(int i=0; i<n; i++) cin >> a[i];
+    SparseTable<S,op,e> sp(a);
+    for(int qi=0;qi<q;qi++){
         int l,r; cin >> l >> r;
-        cout << sp.query(l,r) << endl;
+        cout << sp.prod(l,r) << endl;
     }
 }
