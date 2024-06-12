@@ -143,6 +143,30 @@ int main(){
 }
 ```
 
+#### 区間加算・区間2乗和
+```cpp
+using mint = modint998244353;
+struct S {
+    mint a;
+    mint a2;
+    int size;
+};
+using F = mint;
+
+S op(S x, S y) { return S{x.a + y.a, x.a2 + y.a2, x.size + y.size}; }
+S e() { return S{0, 0, 0}; }
+S mapping(F f, S x) { return S{x.a + f*x.size, x.a2 + f*x.a*2 + f*f*x.size, x.size}; }
+F composition(F f, F g) { return f+g; }
+F id() { return 0; }
+
+int main(){
+    int N;
+    vector<S> a(N);
+    lazy_segtree<S, op, e, F, mapping, composition, id> seg(a);
+    for(int i=0; i<n; i++) seg.set(i,{a[i],1});
+}
+```
+
 #### 区間ax+b・区間和
 ```cpp
 using mint = modint998244353;
