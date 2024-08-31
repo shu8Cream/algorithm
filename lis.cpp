@@ -1,101 +1,84 @@
 /**
- * @file lis.cpp
- * @author shu8Cream
- * @brief 
- * @version 0.1
- * @date 2022-08-27
- * 
- * @verify https://atcoder.jp/contests/abc134/tasks/abc134_e
- * 
- */
+*    author:  shu8Cream
+*    created: 2024/09/01 02:10:26
+**/
 
 #include <bits/stdc++.h>
 using namespace std;
-#define overload3(a,b,c,d,...) d
-#define rep1(i,n) for (int i=0; i<(n); i++)
-#define rep2(i,a,n) for (int i=(a); i<(n); i++)
-#define rep(...) overload3(__VA_ARGS__, rep2, rep1)(__VA_ARGS__)
-#define rrep1(i,n) for (int i=(n-1); i>=0; i--)
-#define rrep2(i,a,n) for (int i=(n-1); i>=(a); i--)
-#define rrep(...) overload3(__VA_ARGS__, rrep2, rrep1)(__VA_ARGS__)
-#define all(x) (x).begin(), (x).end()
-#define rall(x) (x).rbegin(), (x).rend()
-#define sz(x) int((x).size())
-#define pcnt __builtin_popcountll
-using ll = long long;
-using P = pair<ll,ll>;
-template<typename T> using vc = vector<T>;
-template<typename T> using vv = vc<vc<T>>;
-using vi = vc<ll>;
-using vvi = vv<ll>;
-const int INF = 1e9;
-const ll LINF = 8e18;
-template<typename T>istream& operator>>(istream&i,vc<T>&v){rep(j,sz(v))i>>v[j];return i;}
-template<typename T>string join(const T&v,const string& d=""){stringstream s;rep(i,sz(v))(i?s<<d:s)<<v[i];return s.str();}
-template<typename T>ostream& operator<<(ostream&o,const vc<T>&v){if(sz(v))o<<join(v," ");return o;}
-template<typename T1,typename T2>istream& operator>>(istream&i,pair<T1,T2>&v){return i>>v.first>>v.second;}
-template<typename T1,typename T2>ostream& operator<<(ostream&o,const pair<T1,T2>&v){return o<<v.first<<","<<v.second;}
-template<class T> inline bool chmax(T& a, T b) {if(a<b) { a=b;return true; } return false;}
-template<class T> inline bool chmin(T& a, T b) {if(a>b) { a=b;return true; } return false;}
 
-template <class T> string to_string(T s);
-template <class S, class T> string to_string(pair<S, T> p);
-string to_string(char c) { return string(1, c); }
-string to_string(string s) { return s; }
-string to_string(const char s[]) { return string(s); }
-
-template <class T>
-string to_string(T v) {
-    if (v.empty()) return "{}";
-    string ret = "{";
-    for (auto x : v) ret += to_string(x) + ",";
-    ret.back() = '}';
-    return ret;
-}
-template <class S, class T>
-string to_string(pair<S, T> p) {
-    return "{" + to_string(p.first) + ":" + to_string(p.second) + "}";
-}
-
-void debug_out() { cout << endl; }
-
-template <typename Head, typename... Tail>
-void debug_out(Head H, Tail... T) {
-    cout << to_string(H) << " ";
-    debug_out(T...);
-}
-
-#ifdef _DEBUG
-#define debug(...) debug_out(__VA_ARGS__)
-#else
-#define debug(...)
-#endif
-
-int LIS(vi &a){
-    int n = sz(a);
-    vi dp(n,LINF);
-    rep(i,n){
-        auto itr = lower_bound(all(dp), a[i]); // 狭義単調増加
-        // auto itr = upper_bound(all(dp), a[i]); // 広義単調増加
-        *itr = a[i];
+template<typename T>
+struct LIS {
+    const T inf = numeric_limits<T>::max();
+    int n;
+    vector<T> A;
+    vector<T> id; // Aのどこに挿入したかの情報
+    vector<T> a;
+    int lis_size;
+    LIS(){}
+    // strict: T/F -> 狭義/広義
+    LIS(vector<T> a, bool strict=true): n(int(a.size())), a(a), A(n,inf),id(n){
+        for(int i=0; i<n; i++){
+            if(strict) id[i] = distance(A.begin(), lower_bound(A.begin(), A.end(), a[i]));
+            else id[i] = distance(A.begin(), upper_bound(A.begin(), A.end(), a[i]));
+            A[id[i]] = a[i];
+        }
+        lis_size = *max_element(id.begin(), id.end())+1;
     }
-    return lower_bound(all(dp), LINF) - dp.begin();
-}
+
+    int size(){ return lis_size; }
+
+    vector<int> restore_id(){
+        vector<int> res(lis_size);
+        int m = lis_size-1; // 後ろから
+        for(int i=n-1; i>=0; i--)if(id[i]==m) res[m--] = i;
+        return res;
+    }
+
+    vector<T> restore_val(){
+        vector<T> res(lis_size);
+        int m = lis_size-1;
+        for(int i=n-1; i>=0; i--)if(id[i]==m) res[m--] = a[i];
+        return res;
+    }
+};
 
 void ABC134E(){
-    ll n; cin >> n;
-    vi a(n); cin >> a;
-    vi dp(n,LINF);
-    rrep(i,n){
-        auto itr = upper_bound(all(dp), a[i]);
-        *itr = a[i];
+    long n; cin >> n;
+    vector<long> a(n);
+    for(int i=0; i<n; i++) cin >> a[i];
+    vector<long> ra = a;
+    reverse(ra.begin(),ra.end());
+    LIS<long> lis(ra,false);
+    cout << lis.size() << endl;
+}
+
+void ABC369F(){
+    long h,w,n; cin >> h >> w >> n;
+    vector<long> r(n),c(n);
+    for(int i=0;i<n;i++) cin >> r[i] >> c[i];
+    vector<pair<long,long>> rc(n);
+    for(int i=0;i<n;i++) rc[i] = {r[i],c[i]};
+    sort(rc.begin(),rc.end());
+
+    vector<long> cc(n);
+    for(int i=0;i<n;i++) cc[i] = rc[i].second;
+    LIS<long> lis(cc,false);
+    cout << lis.size() << endl;
+    int x = 1, y = 1;
+    for(auto id:lis.restore_id()){
+        if(x!=rc[id].first) cout << string(abs(x-rc[id].first),'D');
+        if(y!=rc[id].second) cout << string(abs(y-rc[id].second),'R');
+        x = rc[id].first;
+        y = rc[id].second;
     }
-    ll ans = lower_bound(all(dp), LINF) - dp.begin();
-    cout << ans << endl;
+    if(x-h) cout << string(abs(x-h),'D');
+    if(y-w) cout << string(abs(y-w),'R');
+    cout << endl;
 }
 
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    ABC134E();
+    // ABC134E();
+    ABC369F();
 }
