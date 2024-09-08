@@ -114,11 +114,11 @@ ll pollard(ll n){
     Miller_Rabin mr;
     if(mr.check(n)) return n;
 
+    ll step = 0;
     auto f = [&](ll x)->ll{
-        return (i128(x) * x + 1) % n;
+        return (i128(x) * x + step) % n;
     };
 
-    ll step = 0;
     while(1){
         step++;
         ll x = step, y = f(x);
@@ -152,7 +152,8 @@ void algo_logic(){
 void solve(){
     ll n; cin >> n;
     vi p = prime_factorize(n);
-    cout << p[1] << " " << (p[1]==p[2]? p[0]:p[2]) << endl;
+    // cout << p[1] << " " << (p[1]==p[2]? p[0]:p[2]) << endl;
+    cout << p << endl;
 }
 
 int main() {
