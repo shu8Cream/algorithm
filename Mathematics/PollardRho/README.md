@@ -13,3 +13,4 @@
 
 ## 参考
 - [素因数分解を O(n^(1/4)) でする](https://qiita.com/Kiri8128/items/eca965fe86ea5f4cbb98#%E3%83%9D%E3%83%A9%E3%83%BC%E3%83%89%E3%81%AE%CF%81%E6%B3%95)
+- [間違ったポラードのロー法の使い方](https://lpha-z.hatenablog.com/entry/2023/01/15/231500)
