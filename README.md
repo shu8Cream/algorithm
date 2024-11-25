@@ -68,7 +68,7 @@ C++17で実装していますが、一部C++14想定のものも含まれます�
 ## データ構造
 様々なデータ構造に関する実装
 
-- [Union-Find（マージテク）](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/unionfind.cpp)
+- [Union-Find（マージテク）](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/UnionFind)
 - [Undo可能なUnion-Find](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/DynamicConnectivity/undoable_unionfind.cpp)
 - [DynamicConnectivity](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/DynamicConnectivity)
 - [SparseTable](https://github.com/shu8Cream/algorithm/blob/main/DataStructure/sparse_table.cpp)
