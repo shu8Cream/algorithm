@@ -86,6 +86,7 @@ struct Miller_Rabin{
         if(n==1) return false;
         if(n==2) return true;
         if(n%2==0) return false;
+        if(gcd(n,3*5*7)!=1) return false;
         auto judge = [&](auto vec)->bool{
             i128 d = n-1;
             d = d/(d&-d);
