@@ -60,6 +60,7 @@ vc<T> cumsum(vc<U> &A, int off = 1) {
 
 template <class T> string to_string(T s);
 template <class S, class T> string to_string(pair<S, T> p);
+template <class... Tp> string to_string(tuple<Tp...>& t);
 string to_string(char c) { return string(1, c); }
 string to_string(string s) { return s; }
 string to_string(const char s[]) { return string(s); }
@@ -75,6 +76,16 @@ string to_string(T v) {
 template <class S, class T>
 string to_string(pair<S, T> p) {
     return "{" + to_string(p.first) + ":" + to_string(p.second) + "}";
+}
+template<typename... Tp>
+string to_string(tuple<Tp...>& t) {
+    string ret = "{";
+    std::apply([&](const auto&... args) {
+        ((ret += to_string(args) + ","), ...);
+    }, t);
+    if constexpr (sizeof...(Tp) > 0) ret.back() = '}';
+    else ret += "}";
+    return ret;
 }
 
 void debug_out() { cout << endl; }
