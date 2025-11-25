@@ -145,7 +145,7 @@ vector<complex<double>> IDFT(vector<complex<double>> B){
 }
 
 // 畳み込み (Convolution)
-vector<complex<double>> Convolution(vector<complex<double>> A, vector<complex<double>> B){
+vector<complex<double>> Convolution_naive(vector<complex<double>> A, vector<complex<double>> B){
     const int N = A.size();
     const int M = B.size();
     const int L = N + M - 1;
@@ -175,7 +175,7 @@ vector<complex<double>> FFT(vector<complex<double>> A, bool inverse=false){
     even = FFT(even, inverse);
     odd = FFT(odd, inverse);
     for(int i = 0; i < N / 2; i++){
-        odd[i] *= polar(1.0, (inverse ? -2 : 2) * M_PI * i / N);
+        odd[i] *= polar(1.0, (inverse ? -2.0 : 2.0) * M_PI * i / double(N));
         A[i] = even[i] + odd[i];
         A[N / 2 + i] = even[i] - odd[i];
     }
@@ -192,14 +192,36 @@ vector<complex<double>> IFFT(vector<complex<double>> A){
     return B;
 }
 
+// 畳み込み (Convolution)
+vector<complex<double>> Convolution(vector<complex<double>> A, vector<complex<double>> B){
+    const int N = A.size();
+    const int M = B.size();
+    const int L = N + M - 1;
+    ll LL = ceil_pow2(L);
+    A.resize(LL);
+    B.resize(LL);
+
+    vector<complex<double>> FA = FFT(A);
+    vector<complex<double>> FB = FFT(B);
+    vector<complex<double>> FC(LL);
+    debug(FA);
+    debug(FB);
+    for(int i = 0; i < LL; i++) FC[i] = FA[i] * FB[i];
+    debug(FC);
+    vector<complex<double>> C = IFFT(FC);
+    return C;
+}
+
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
     cout << fixed << setprecision(15);
-    cout << "input >> block_num" << endl;
-    cout << "   1: DFT/IDFT" << endl;
-    cout << "   2: Convolution" << endl;
-    cout << "   3: FFT/IFFT" << endl;
+    cout << "1: DFT/IDFT" << endl;
+    cout << "2: Convolution naive" << endl;
+    cout << "3: FFT/IFFT" << endl;
+    cout << "4: Convolution" << endl;
+    cout << " >> select No. ";
+    cout.flush();
     int block_num; cin >> block_num;
     if(block_num == 1) { // DFT, IDFTの確認
         ll n; cin >> n;
@@ -215,7 +237,7 @@ int main() {
         vc<complex<double>> a(n), b(n);
         cin >> a;
         cin >> b;
-        vc<complex<double>> c = Convolution(a, b);
+        vc<complex<double>> c = Convolution_naive(a, b);
         cout << c << endl;
     }
     if(block_num == 3) {
@@ -232,5 +254,16 @@ int main() {
         vc<complex<double>> cf = IFFT(bf);
         cout << "IDFT: " << cd << endl;
         cout << "IFFT: " << cf << endl;
+    }
+    if(block_num == 4) { // FFTを使ったConvolutionの確認
+        ll n; cin >> n;
+        vc<complex<double>> a(n), b(n);
+        cin >> a;
+        cin >> b;
+        ll nn = ceil_pow2(n);
+        a.resize(nn);
+        b.resize(nn);
+        vc<complex<double>> c = Convolution(a, b);
+        cout << c << endl;
     }
 }
