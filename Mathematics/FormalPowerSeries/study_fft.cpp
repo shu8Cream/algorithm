@@ -108,6 +108,21 @@ void debug_out(Head H, Tail... T) {
 #define debug(...)
 #endif
 
+unsigned int ceil_pow2(unsigned int x) {
+    if (x <= 1) return 1; // 1以下は1に切り上げ
+    // xを調整して、最も近い2のべき乗よりも小さくする
+    x--;
+    // ビットを立てる操作
+    x |= x >> 1;
+    x |= x >> 2;
+    x |= x >> 4;
+    x |= x >> 8;
+    x |= x >> 16;
+    // 調整した値に1を加えると、目的の2のべき乗になる
+    x++;
+    return x;
+}
+
 // 離散フーリエ変換 (Discrete Fourier Transform)
 vector<complex<double>> DFT(vector<complex<double>> A){
     const int N = A.size();
@@ -148,6 +163,35 @@ vector<complex<double>> Convolution(vector<complex<double>> A, vector<complex<do
     return C;
 }
 
+// 高速フーリエ変換 (Fast Fourier Transform)
+vector<complex<double>> FFT(vector<complex<double>> A, bool inverse=false){
+    const int N = A.size();
+    if(N == 1) return A;
+    vector<complex<double>> even(N / 2), odd(N / 2);
+    for(int i = 0; i < N / 2; i++){
+        even[i] = A[i * 2];
+        odd[i] = A[i * 2 + 1];
+    }
+    even = FFT(even, inverse);
+    odd = FFT(odd, inverse);
+    for(int i = 0; i < N / 2; i++){
+        odd[i] *= polar(1.0, (inverse ? -2 : 2) * M_PI * i / N);
+        A[i] = even[i] + odd[i];
+        A[N / 2 + i] = even[i] - odd[i];
+    }
+    return A;
+}
+
+// 逆高速フーリエ変換 (Inverse Fast Fourier Transform)
+vector<complex<double>> IFFT(vector<complex<double>> A){
+    const int N = A.size();
+    auto B = FFT(A, true);
+    for(int i = 0; i < N; i++){
+        B[i] /= N;
+    }
+    return B;
+}
+
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
@@ -155,6 +199,7 @@ int main() {
     cout << "input >> block_num" << endl;
     cout << "   1: DFT/IDFT" << endl;
     cout << "   2: Convolution" << endl;
+    cout << "   3: FFT/IFFT" << endl;
     int block_num; cin >> block_num;
     if(block_num == 1) { // DFT, IDFTの確認
         ll n; cin >> n;
@@ -172,5 +217,20 @@ int main() {
         cin >> b;
         vc<complex<double>> c = Convolution(a, b);
         cout << c << endl;
+    }
+    if(block_num == 3) {
+        ll n; cin >> n;
+        vc<complex<double>> a(n); cin >> a;
+        ll nn = ceil_pow2(n);
+        a.resize(nn);
+        vc<complex<double>> bd = DFT(a);
+        vc<complex<double>> bf = FFT(a);
+        cout << "DFT: " <<  bd << endl;
+        cout << "FFT: " <<  bf << endl;
+
+        vc<complex<double>> cd = IDFT(bd);
+        vc<complex<double>> cf = IFFT(bf);
+        cout << "IDFT: " << cd << endl;
+        cout << "IFFT: " << cf << endl;
     }
 }
