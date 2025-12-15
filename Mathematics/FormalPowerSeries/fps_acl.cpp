@@ -139,6 +139,15 @@ FPS &operator*=(FPS &f, mint k){
     return f;
 }
 
+FPS& operator<<=(FPS &f, const int shamt) {
+    return f.insert(f.begin(), shamt, 0), f;
+}
+FPS& operator>>=(FPS &f, const int shamt) {
+    return f.erase(f.begin(), f.begin() + min(shamt, int(f.size()))), f;
+}
+FPS operator<<(FPS f, const int shamt) { f <<= shamt; return f; }
+FPS operator>>(FPS f, const int shamt) { f >>= shamt; return f; }
+
 FPS inv(FPS a){
     int length = a.size();
     FPS x = {a[0].inv()};
@@ -196,6 +205,27 @@ FPS exp(FPS f){
     return x;
 }
 
+FPS pow(FPS f, long long k){
+    int n = f.size();
+    if(k == 0){
+        FPS x{1};
+        x.resize(n);
+        return x;
+    }
+    int tlz = 0;
+    while (tlz < n && f[tlz] == 0) ++tlz;
+    if (tlz == n || tlz > (n - 1) / k) return FPS(n, 0);
+    const int m = n - tlz * k;
+    FPS x = f >> tlz;
+    mint base = x[0];
+    x = log(x /= base);
+    x = exp(x *= k);
+    x *= base.pow(k);
+    x <<= (tlz * k);
+    x.resize(n);
+    return x;
+}
+
 void test_inv_fps() {
     ll n; cin >> n;
     FPS a(n); cin >> a;
@@ -217,12 +247,13 @@ void test_log_fps() {
     cout << ans << endl;
 }
 
-// void test_pow_fps() {
-//     ll n,m; cin >> n >> m;
-//     FPS a(n); cin >> a;
-//     auto ans = pow(a,m);
-//     cout << ans << endl;
-// }
+void test_pow_fps() {
+    ll n,m; cin >> n >> m;
+    FPS a(n); cin >> a;
+    auto ans = pow(a,m);
+    assert(n==ans.size());
+    cout << ans << endl;
+}
 
 int main() {
     cin.tie(nullptr);
@@ -231,5 +262,5 @@ int main() {
     // test_inv_fps();
     // test_log_fps();
     // test_exp_fps();
-    // test_pow_fps();
+    test_pow_fps();
 }
