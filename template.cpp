@@ -59,11 +59,17 @@ vc<T> cumsum(vc<U> &A, int off = 1) {
 }
 
 template <class T> string to_string(T s);
+template <class T> string to_string(complex<T> s);
 template <class S, class T> string to_string(pair<S, T> p);
 template <class... Tp> string to_string(tuple<Tp...>& t);
 string to_string(char c) { return string(1, c); }
 string to_string(string s) { return s; }
 string to_string(const char s[]) { return string(s); }
+
+template <class T>
+string to_string(complex<T> s) {
+    return "(" + to_string(s.real()) + "+" + to_string(s.imag()) + "i)";
+}
 
 template <class T>
 string to_string(T v) {
